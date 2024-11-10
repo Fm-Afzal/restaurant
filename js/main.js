@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.toggle('nav-expanded');
     });
 
-    document.querySelector("header .checkbox").addEventListener("click", function () {
-        document.documentElement.classList.toggle('dark');
-    });
+    // document.querySelector("header .checkbox").addEventListener("click", function () {
+    //     document.documentElement.classList.toggle('dark');
+    // });
 });
 
 

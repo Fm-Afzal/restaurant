@@ -669,6 +669,14 @@ video {
   inset: -0.25rem;
 }
 
+.-top-4{
+  top: -1rem;
+}
+
+.bottom-3{
+  bottom: 0.75rem;
+}
+
 .end-1{
   inset-inline-end: 0.25rem;
 }
@@ -677,56 +685,20 @@ video {
   left: 50%;
 }
 
+.right-0{
+  right: 0px;
+}
+
+.right-3{
+  right: 0.75rem;
+}
+
 .top-0{
   top: 0px;
 }
 
 .top-1\/2{
   top: 50%;
-}
-
-.bottom-0{
-  bottom: 0px;
-}
-
-.right-0{
-  right: 0px;
-}
-
-.right-14{
-  right: 3.5rem;
-}
-
-.-right-12{
-  right: -3rem;
-}
-
-.-top-10{
-  top: -2.5rem;
-}
-
-.right-\[-29px\]{
-  right: -29px;
-}
-
-.-top-2{
-  top: -0.5rem;
-}
-
-.-top-4{
-  top: -1rem;
-}
-
-.left-0{
-  left: 0px;
-}
-
-.bottom-3{
-  bottom: 0.75rem;
-}
-
-.right-3{
-  right: 0.75rem;
 }
 
 .isolate{
@@ -739,14 +711,6 @@ video {
 
 .z-10{
   z-index: 10;
-}
-
-.-z-10{
-  z-index: -10;
-}
-
-.-z-0{
-  z-index: 0;
 }
 
 .z-20{
@@ -959,6 +923,10 @@ video {
   height: 0.25rem;
 }
 
+.h-20{
+  height: 5rem;
+}
+
 .h-3{
   height: 0.75rem;
 }
@@ -995,28 +963,12 @@ video {
   height: 100%;
 }
 
-.h-40{
-  height: 10rem;
-}
-
-.h-32{
-  height: 8rem;
-}
-
-.h-16{
-  height: 4rem;
-}
-
-.h-20{
-  height: 5rem;
+.w-20{
+  width: 5rem;
 }
 
 .w-3{
   width: 0.75rem;
-}
-
-.w-32{
-  width: 8rem;
 }
 
 .w-7{
@@ -1061,18 +1013,6 @@ video {
 
 .w-full{
   width: 100%;
-}
-
-.w-40{
-  width: 10rem;
-}
-
-.w-16{
-  width: 4rem;
-}
-
-.w-20{
-  width: 5rem;
 }
 
 .max-w-\[201px\]{
@@ -2453,10 +2393,6 @@ video {
   line-height: 2rem;
 }
 
-.text-32{
-  font-size: 2rem;
-}
-
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -2580,6 +2516,10 @@ video {
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
+.leading-22{
+  line-height: 1.375rem;
+}
+
 .leading-24{
   line-height: 1.5rem;
 }
@@ -2626,10 +2566,6 @@ video {
 
 .leading-normal{
   line-height: 1.5;
-}
-
-.leading-22{
-  line-height: 1.375rem;
 }
 
 .tracking-1{
@@ -3071,10 +3007,23 @@ video {
     padding-left: 0px;
     padding-right: 0px;
   }
+}
 
-  body.nav-expanded section{
-    margin-left: 360px;
-  }
+.main--menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  /* Adjust thickness */
+  background-color: white;
+  /* Border color */
+  transition: width 0.3s ease-in-out;
+}
+
+.main--menu li a:hover::after {
+  width: 100%;
 }
 
 form input,
@@ -3211,6 +3160,104 @@ input::placeholder{
   }
 }
 
+body.nav-expanded .mobile-menu{
+  display: block;
+}
+
+body.nav-expanded .toggleNav i:nth-child(2){
+  display: none;
+}
+
+body.nav-expanded .toggleNav i:nth-child(1){
+  --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+body.nav-expanded .toggleNav i:nth-child(3){
+  margin-top: -2px;
+  --tw-rotate: -45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+body .toggleNav i{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+/* Initial hidden state for .mobile-menu */
+
+.mobile-menu{
+  height: 0px;
+  width: 0px;
+  --tw-translate-y: -2.75rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  opacity: 0;
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reveal .mobile-menu with animation when nav-expanded is active */
+
+body.nav-expanded .mobile-menu{
+  height: 100%;
+  width: 100%;
+  --tw-translate-y: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Applying animations */
+
+.fadeIn {
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.slideUp {
+  animation: slideUp 1s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.bounce {
+  animation: bounce 1s ease infinite;
+  animation-delay: 1s;
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;
@@ -3330,14 +3377,6 @@ input::placeholder{
     right: -29px;
   }
 
-  .md\:-right-12{
-    right: -3rem;
-  }
-
-  .md\:bottom-0{
-    bottom: 0px;
-  }
-
   .md\:order-\[0\]{
     order: 0;
   }
@@ -3362,6 +3401,10 @@ input::placeholder{
     display: flex;
   }
 
+  .md\:h-32{
+    height: 8rem;
+  }
+
   .md\:h-\[39px\]{
     height: 39px;
   }
@@ -3370,8 +3413,8 @@ input::placeholder{
     height: 649px;
   }
 
-  .md\:h-32{
-    height: 8rem;
+  .md\:w-32{
+    width: 8rem;
   }
 
   .md\:w-\[39px\]{
@@ -3384,10 +3427,6 @@ input::placeholder{
 
   .md\:w-\[700px\]{
     width: 700px;
-  }
-
-  .md\:w-32{
-    width: 8rem;
   }
 
   .md\:grid-cols-2{
@@ -3464,6 +3503,10 @@ input::placeholder{
     font-size: 7.5rem;
   }
 
+  .md\:text-32{
+    font-size: 2rem;
+  }
+
   .md\:text-62{
     font-size: 3.875rem;
   }
@@ -3478,12 +3521,12 @@ input::placeholder{
     line-height: 1.75rem;
   }
 
-  .md\:text-32{
-    font-size: 2rem;
-  }
-
   .md\:leading-130{
     line-height: 8.125rem;
+  }
+
+  .md\:leading-36{
+    line-height: 2.25rem;
   }
 
   .md\:leading-62{
@@ -3496,10 +3539,6 @@ input::placeholder{
 
   .md\:leading-8{
     line-height: 2rem;
-  }
-
-  .md\:leading-36{
-    line-height: 2.25rem;
   }
 }
 
@@ -3532,8 +3571,8 @@ input::placeholder{
     display: none;
   }
 
-  .lg\:w-\[830px\]{
-    width: 830px;
+  .lg\:w-\[900px\]{
+    width: 900px;
   }
 
   .lg\:items-center{
@@ -3601,8 +3640,8 @@ input::placeholder{
   font-weight: 500;
 }
 
-.\[\&\>li\>a\]\:uppercase>li>a{
-  text-transform: uppercase;
+.\[\&\>li\>a\]\:capitalize>li>a{
+  text-transform: capitalize;
 }
 
 .\[\&\>li\>a\]\:text-white>li>a{
