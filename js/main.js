@@ -44,7 +44,6 @@ var swiper = new Swiper(".testimonialSlider", {
     },
 });
 
-
 function openTab(evt, language) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tab-content");
@@ -60,28 +59,26 @@ function openTab(evt, language) {
 }
 
 
-document.querySelectorAll(".playVideoContent").forEach(function (playVideoContent) {
-    const videoContent = playVideoContent.parentElement.querySelector(".videoContent");
+const video = document.getElementById("videoContent");
+const playButton = document.getElementById("playVideoContent");
 
-    playVideoContent.addEventListener("click", function (e) {
-        e.preventDefault();
-        const playIcon = playVideoContent.querySelector(".playIcon");
+playButton.addEventListener("click", (e) => {
+    e.preventDefault();
 
-        if (videoContent.paused) {
-            videoContent.play();
-            playIcon.classList.add("opacity-0");  // Hide play icon on play
-        } else {
-            videoContent.pause();
-            playIcon.classList.remove("opacity-0"); // Show play icon on pause
-        }
-    });
-
-    videoContent.addEventListener("ended", function () {
-        const playIcon = playVideoContent.querySelector(".playIcon");
-        playIcon.classList.remove("opacity-0");  // Show play icon when video ends
-    });
+    if (video.paused) {
+        video.play();
+        playButton.style.display = "none";
+    } else {
+        video.pause();
+        playButton.style.display = "block";
+    }
 });
 
+video.addEventListener("pause", () => {
+    playButton.style.display = "block";
+});
 
-
+video.addEventListener("play", () => {
+    playButton.style.display = "none";
+});
 
