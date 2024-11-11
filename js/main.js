@@ -60,6 +60,27 @@ function openTab(evt, language) {
 }
 
 
+document.querySelectorAll(".playVideoContent").forEach(function (playVideoContent) {
+    const videoContent = playVideoContent.parentElement.querySelector(".videoContent");
+
+    playVideoContent.addEventListener("click", function (e) {
+        e.preventDefault();
+        const playIcon = playVideoContent.querySelector(".playIcon");
+
+        if (videoContent.paused) {
+            videoContent.play();
+            playIcon.classList.add("opacity-0");  // Hide play icon on play
+        } else {
+            videoContent.pause();
+            playIcon.classList.remove("opacity-0"); // Show play icon on pause
+        }
+    });
+
+    videoContent.addEventListener("ended", function () {
+        const playIcon = playVideoContent.querySelector(".playIcon");
+        playIcon.classList.remove("opacity-0");  // Show play icon when video ends
+    });
+});
 
 
 
