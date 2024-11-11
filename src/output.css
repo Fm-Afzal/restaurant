@@ -3009,6 +3009,15 @@ video {
   }
 }
 
+header {
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+header.scrolled {
+  padding: 10px 0;
+  /* Reduce padding for a compact look */
+}
+
 .main--menu li a::after {
   content: "";
   position: absolute;
@@ -3233,7 +3242,8 @@ body.nav-expanded .mobile-menu{
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -3475,6 +3485,10 @@ body.nav-expanded .mobile-menu{
     padding-bottom: 160px;
   }
 
+  .md\:pt-0{
+    padding-top: 0px;
+  }
+
   .md\:pt-8{
     padding-top: 2rem;
   }
@@ -3700,4 +3714,3 @@ body.nav-expanded .mobile-menu{
 .\[\&\>svg\]\:w-\[10px\]>svg{
   width: 10px;
 }
-

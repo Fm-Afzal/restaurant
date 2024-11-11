@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".toggleNav").addEventListener("click", function () {
@@ -9,6 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // });
 });
 
+window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
 
 var swiper = new Swiper(".mySwiper", {
@@ -53,6 +62,8 @@ function openTab(evt, language) {
     document.getElementById(language).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+
 
 
 
