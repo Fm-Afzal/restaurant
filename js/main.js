@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".toggleNav").addEventListener("click", function () {
         document.body.classList.toggle('nav-expanded');
     });
-
-    // document.querySelector("header .checkbox").addEventListener("click", function () {
-    //     document.documentElement.classList.toggle('dark');
-    // });
 });
 
 window.addEventListener('scroll', function () {

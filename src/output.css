@@ -2308,6 +2308,10 @@ video {
   padding-top: 60px;
 }
 
+.pt-4{
+  padding-top: 1rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -3650,12 +3654,21 @@ body.nav-expanded .mobile-menu{
   font-size: 0.938rem;
 }
 
+.\[\&\>li\>a\]\:text-base>li>a{
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .\[\&\>li\>a\]\:font-medium>li>a{
   font-weight: 500;
 }
 
 .\[\&\>li\>a\]\:capitalize>li>a{
   text-transform: capitalize;
+}
+
+.\[\&\>li\>a\]\:leading-normal>li>a{
+  line-height: 1.5;
 }
 
 .\[\&\>li\>a\]\:text-white>li>a{
