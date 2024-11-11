@@ -62,23 +62,30 @@ function openTab(evt, language) {
 const video = document.getElementById("videoContent");
 const playButton = document.getElementById("playVideoContent");
 
-playButton.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (video.paused) {
+function togglePlay() {
+    if (video.paused || video.ended) {
         video.play();
-        playButton.style.display = "none";
     } else {
         video.pause();
-        playButton.style.display = "block";
     }
+}
+
+playButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent the default link behavior
+    togglePlay();
 });
 
-video.addEventListener("pause", () => {
-    playButton.style.display = "block";
+video.addEventListener("playing", function () {
+    playButton.style.opacity = 0; // Hide play button when video starts
 });
 
-video.addEventListener("play", () => {
-    playButton.style.display = "none";
+video.addEventListener("pause", function () {
+    playButton.style.opacity = 1; // Show play button when video is paused
 });
+
+video.addEventListener("ended", function () {
+    playButton.style.opacity = 1; // Show play button when video ends
+});
+
+
 
