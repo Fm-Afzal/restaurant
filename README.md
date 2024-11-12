@@ -7,3 +7,7 @@ My demo projects built in by Tailwind are in this repo.
 Please run `npm i` or `npm install` to get the required packages
 
 You can also run the packages by `npm run dev` 
+## Built With
+
+- [React](https://tailwindcss.com/) - CSS framework
+- [swiperjs](https://swiperjs.com/) - JavaScript library that creates modern touch sliders
